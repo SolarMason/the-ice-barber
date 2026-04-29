@@ -56,6 +56,9 @@
       --sab: env(safe-area-inset-bottom, 0px);
       --sal: env(safe-area-inset-left, 0px);
       --sar: env(safe-area-inset-right, 0px);
+          --r-2xl: 44px;
+          --ease-spring: cubic-bezier(0.5, 1.6, 0.4, 1);
+          --glass-subtle: rgba(255, 255, 255, 0.40);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -232,7 +235,7 @@
       padding: 16px 20px;
       background: linear-gradient(135deg, rgba(255, 212, 45, 0.12), rgba(247, 147, 30, 0.10));
       border: 1px solid rgba(247, 147, 30, 0.28);
-      border-radius: var(--r-md);
+      border-radius: var(--r-lg);
       box-shadow: var(--glass-inner);
       display: flex;
       gap: 14px;
@@ -274,7 +277,7 @@
       backdrop-filter: blur(28px) saturate(180%);
       -webkit-backdrop-filter: blur(28px) saturate(180%);
       border: 1px solid var(--glass-border);
-      border-radius: var(--r-md);
+      border-radius: var(--r-pill);
       box-shadow: var(--glass-shadow), var(--glass-inner);
       overflow-x: auto;
       scrollbar-width: none;
@@ -284,7 +287,7 @@
     .tabs label {
       flex: 1 0 auto;
       padding: 12px 18px;
-      border-radius: 12px;
+      border-radius: var(--r-pill);
       font-size: 15px;
       font-weight: 600;
       color: var(--ink-2);
@@ -325,7 +328,7 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
-      border-radius: var(--r-md);
+      border-radius: var(--r-lg);
       margin-bottom: 16px;
       box-shadow: var(--glass-inner);
     }
@@ -355,7 +358,7 @@
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border: 1px solid var(--glass-border);
-      border-radius: var(--r-md);
+      border-radius: var(--r-xl);
       box-shadow: var(--glass-shadow), var(--glass-inner);
       overflow: hidden;
       transition: box-shadow .2s, transform .15s var(--ease-ios);

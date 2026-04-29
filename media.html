@@ -56,6 +56,9 @@
       --sab: env(safe-area-inset-bottom, 0px);
       --sal: env(safe-area-inset-left, 0px);
       --sar: env(safe-area-inset-right, 0px);
+          --r-2xl: 44px;
+          --ease-spring: cubic-bezier(0.5, 1.6, 0.4, 1);
+          --glass-subtle: rgba(255, 255, 255, 0.40);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -322,7 +325,7 @@
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border: 1px solid var(--glass-border);
-      border-radius: var(--r-lg);
+      border-radius: var(--r-xl);
       box-shadow: var(--glass-shadow), var(--glass-inner);
       padding: 22px 22px 20px;
       display: flex;
@@ -336,7 +339,7 @@
     .pdf-thumb {
       width: 100%;
       aspect-ratio: 4 / 5.5;
-      border-radius: var(--r-md);
+      border-radius: var(--r-lg);
       background: linear-gradient(135deg, #FAF6EC, #F0E8D6);
       border: 1px solid var(--line);
       display: grid;
@@ -503,7 +506,7 @@
     .rec-item {
       background: white;
       border: 1px solid var(--line);
-      border-radius: var(--r-md);
+      border-radius: var(--r-lg);
       padding: 16px 18px;
       box-shadow: var(--glass-inner);
     }
