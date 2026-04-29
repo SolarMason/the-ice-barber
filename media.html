@@ -89,83 +89,94 @@
         linear-gradient(180deg, var(--bg-1), var(--bg-2));
     }
 
-    a { color: inherit; }
+    a { color: var(--c-deep); text-decoration: none; }
 
     /* ═══════════════════════════════════════════════════════════
-       NAV (matches index.html)
+       TOP NAV — iOS large title style with glass (matches index.html)
     ═══════════════════════════════════════════════════════════ */
     .nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: calc(var(--sat) + 10px) calc(var(--sar) + 18px) 10px calc(var(--sal) + 18px);
-      background: rgba(240, 248, 254, 0.75);
+      background: rgba(240, 248, 254, 0.72);
       backdrop-filter: saturate(180%) blur(28px);
       -webkit-backdrop-filter: saturate(180%) blur(28px);
       border-bottom: 1px solid var(--line);
+      padding-top: var(--sat);
+      transition: background .3s var(--ease-ios), border-color .3s;
+    }
+    .nav.scrolled {
+      background: rgba(240, 248, 254, 0.88);
+      border-bottom-color: var(--line-strong);
     }
     .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
+      height: 56px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 max(20px, var(--sal)) 0 max(20px, var(--sar));
     }
     .nav-brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
-      color: var(--c-navy);
       font-family: var(--font-rounded);
       font-weight: 700;
       font-size: 17px;
       letter-spacing: -0.01em;
+      color: var(--c-navy);
+      text-decoration: none;
     }
     .nav-brand-logo {
       width: 36px;
       height: 36px;
-      border-radius: 50%;
-      background: white;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #DAEFFE, var(--c-sky));
       display: grid;
       place-items: center;
-      box-shadow: var(--glass-shadow);
+      box-shadow: 0 2px 8px rgba(41, 195, 229, 0.35), inset 0 1px 0 rgba(255,255,255,0.6);
       overflow: hidden;
-      flex-shrink: 0;
     }
     .nav-brand-logo img { width: 90%; height: auto; }
     .nav-links {
       display: flex;
       gap: 4px;
-      flex: 1;
-      justify-content: center;
+      align-items: center;
     }
     .nav-links a {
       padding: 8px 14px;
       border-radius: var(--r-pill);
-      text-decoration: none;
       color: var(--ink-2);
       font-weight: 500;
       font-size: 15px;
       transition: background .2s, color .2s;
+      text-decoration: none;
     }
-    .nav-links a:hover { background: var(--glass); color: var(--c-navy); }
+    .nav-links a:hover { background: rgba(8, 78, 137, 0.08); color: var(--c-navy); }
     .nav-links a.active { background: var(--c-navy); color: white; }
     .nav-cta {
-      display: grid;
-      place-items: center;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #5fdaef, var(--c-sky));
-      color: white;
-      box-shadow: var(--glass-shadow);
-      transition: transform .15s var(--ease-ios);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #34C759 0%, #2BAE4C 100%);
+      color: white !important;
+      box-shadow: 0 2px 6px rgba(43, 174, 76, 0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+      transition: transform .15s var(--ease-spring), box-shadow .2s, filter .2s;
+      flex-shrink: 0;
     }
-    .nav-cta:hover { transform: scale(1.05); }
-    @media (max-width: 760px) {
+    .nav-cta svg { display: block; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(43, 174, 76, 0.4), inset 0 1px 0 rgba(255,255,255,0.3); filter: brightness(1.05); }
+    .nav-cta:active { transform: scale(0.92); }
+
+    @media (max-width: 720px) {
       .nav-links { display: none; }
     }
-
     /* ═══════════════════════════════════════════════════════════
        HERO
     ═══════════════════════════════════════════════════════════ */
@@ -337,8 +348,8 @@
       overflow: hidden;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
     }
-    /* Decorative paper sheet style */
-    .pdf-thumb::before {
+    /* Decorative paper sheet outline (only when no preview img) */
+    .pdf-thumb:not(:has(img))::before {
       content: "";
       position: absolute;
       inset: 16px;
@@ -346,6 +357,21 @@
       background: white;
       box-shadow: 0 4px 16px rgba(2,38,88,0.10);
     }
+    /* Real PDF preview image */
+    .pdf-thumb-img {
+      position: absolute;
+      inset: 12px;
+      width: calc(100% - 24px);
+      height: calc(100% - 24px);
+      object-fit: contain;
+      object-position: center top;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(2,38,88,0.14), 0 1px 3px rgba(2,38,88,0.08);
+      z-index: 0;
+    }
+    /* Hide the colored icon when a real preview image is present */
+    .pdf-thumb:has(img) .pdf-icn { display: none; }
     .pdf-icn {
       position: relative;
       z-index: 1;
@@ -769,6 +795,7 @@
     <!-- 01 BUSINESS CARD -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/01-business-card.jpg" alt="Business card preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-pink">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
         </div>
@@ -788,6 +815,7 @@
     <!-- 02 FLYER -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/02-flyer.jpg" alt="Flyer preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-yellow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
@@ -807,6 +835,7 @@
     <!-- 03 DOOR HANGER -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/03-door-hanger.jpg" alt="Door hanger preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-sky">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2"/><path d="M9 22V8h6v14"/></svg>
         </div>
@@ -826,6 +855,7 @@
     <!-- 04 POSTCARD -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/04-postcard.jpg" alt="Postcard preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-orange">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
@@ -845,6 +875,7 @@
     <!-- 05 RACK CARD -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/05-rack-card.jpg" alt="Rack card preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-leaf">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="10" x2="15" y2="10"/></svg>
         </div>
@@ -864,6 +895,7 @@
     <!-- 06 TEAR-OFF FLYER -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/06-tearoff-flyer.jpg" alt="Tear-off flyer preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-pink">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="6" y1="16" x2="18" y2="16" stroke-dasharray="2 2"/><line x1="8" y1="20" x2="8" y2="22"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="16" y1="20" x2="16" y2="22"/></svg>
         </div>
@@ -883,6 +915,7 @@
     <!-- 07 EVENT SALES SHEET -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/07-event-sales-sheet.jpg" alt="Event sales sheet preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-navy">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
         </div>
@@ -902,6 +935,7 @@
     <!-- 08 POSTER -->
     <article class="pdf-card">
       <div class="pdf-thumb">
+        <img src="media/thumbs/08-poster.jpg" alt="Poster preview" class="pdf-thumb-img" loading="lazy" />
         <div class="pdf-icn pdf-icn-orange">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>

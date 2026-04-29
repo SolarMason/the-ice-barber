@@ -1,19 +1,27 @@
-/* The Ice Barber LLC — Service Worker */
-const CACHE = 'icebarber-v1';
+/* The Ice Barber LLC — Service Worker
+   Bump CACHE version any time you change the asset list or ship updates
+   you want pushed to existing visitors.
+*/
+const CACHE = 'icebarber-v3';
 const ASSETS = [
   './',
   './index.html',
+  './venues.html',
+  './media.html',
   './manifest.json',
   './icon-32.png',
   './icon-180.png',
   './icon-192.png',
   './icon-512.png',
-  './og-card.png'
+  './og-card.png',
+  './og-card.jpg'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      .then((cache) => cache.addAll(ASSETS))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -30,7 +38,8 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   // Network-first for HTML so updates ship fast; cache-first for assets
-  const isHTML = req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html');
+  const isHTML = req.mode === 'navigate'
+    || (req.headers.get('accept') || '').includes('text/html');
 
   if (isHTML) {
     event.respondWith(

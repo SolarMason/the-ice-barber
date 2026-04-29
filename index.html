@@ -8,7 +8,7 @@
   <!-- PRIMARY SEO META                                              -->
   <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
   <title>The Ice Barber LLC — Premium Shaved Ice for NEPA Events | Scranton, PA</title>
-  <meta name="description" content="The Ice Barber LLC brings premium shaved ice to events across Northeast Pennsylvania. Family-owned, locally trusted. Lemonade, Orange Lemonade & Strawberry. Book us for birthdays, fairs, schools, corporate events & more. Call (570) 251-1996." />
+  <meta name="description" content="The Ice Barber LLC brings premium shaved ice to events across Northeast Pennsylvania — made from scratch with fresh-squeezed real fruit, no artificial syrups, dyes, or HFCS. Family-owned. Lemonade, Orange Lemonade & Strawberry. Book us for birthdays, fairs, schools, corporate events & more. Call (570) 251-1996." />
   <meta name="keywords" content="shaved ice NEPA, snow cones Scranton, shaved ice Lackawanna County, event shaved ice Pennsylvania, ice barber, kids party shaved ice, fair vendor PA, mobile shaved ice catering, family event treats Scranton, snow cone catering NEPA" />
   <meta name="author" content="The Ice Barber LLC" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -30,7 +30,7 @@
   <meta property="og:type" content="business.business" />
   <meta property="og:site_name" content="The Ice Barber LLC" />
   <meta property="og:title" content="The Ice Barber LLC — Premium Shaved Ice for NEPA Events" />
-  <meta property="og:description" content="Family-owned shaved ice serving Northeast Pennsylvania. Lemonade • Orange Lemonade • Strawberry. Book us for your next event — call (570) 251-1996." />
+  <meta property="og:description" content="Family-owned shaved ice serving Northeast Pennsylvania — made from scratch with fresh-squeezed real fruit. Lemonade • Orange Lemonade • Strawberry. Book us for your next event — call (570) 251-1996." />
   <meta property="og:url" content="https://theicebarber.com/" />
   <meta property="og:image" content="https://theicebarber.com/og-card.png" />
   <meta property="og:image:secure_url" content="https://theicebarber.com/og-card.png" />
@@ -124,9 +124,9 @@
           "@type": "Menu",
           "name": "Signature Flavors",
           "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Lemonade Shaved Ice", "description": "Bright, tart lemonade — our most-requested classic." },
-            { "@type": "MenuItem", "name": "Orange Lemonade Shaved Ice", "description": "Sweet citrus blend, balanced and refreshing." },
-            { "@type": "MenuItem", "name": "Strawberry Shaved Ice", "description": "Classic ripe strawberry — a crowd favorite." }
+            { "@type": "MenuItem", "name": "Lemonade Shaved Ice", "description": "Fresh-squeezed real lemons, made from scratch — bright, tart, all-natural. No artificial syrups or dyes." },
+            { "@type": "MenuItem", "name": "Orange Lemonade Shaved Ice", "description": "Fresh-squeezed oranges blended with real lemon — sweet, citrusy, made from scratch with no artificial flavors." },
+            { "@type": "MenuItem", "name": "Strawberry Shaved Ice", "description": "Real strawberries hand-pressed in-house — pure, natural fruit flavor with no artificial colors or HFCS." }
           ]
         },
         "makesOffer": {
@@ -464,7 +464,8 @@
       color: var(--c-navy);
       margin: 0 0 20px;
     }
-    .hero-title .slice {
+    .hero-title .slice,
+    .sec-title .slice {
       background: linear-gradient(95deg, var(--c-pink) 0%, var(--c-orange) 38%, var(--c-yellow) 64%, var(--c-sky) 100%);
       -webkit-background-clip: text;
       background-clip: text;
@@ -734,6 +735,60 @@
       letter-spacing: -0.01em;
     }
     .side-card p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+
+    /* ═══════════════════════════════════════════════════════════
+       FRESHNESS PLEDGE — natural / fresh-squeezed callout band
+    ═══════════════════════════════════════════════════════════ */
+    .freshness-pledge {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 28px 0 36px;
+      padding: 22px;
+      background: var(--glass-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--glass-shadow), var(--glass-inner);
+    }
+    @media (max-width: 880px) {
+      .freshness-pledge { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+    }
+    .pledge-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 4px;
+    }
+    .pledge-icn {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(2,38,88,0.15), inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+    .pledge-icn svg { width: 22px; height: 22px; }
+    .pledge-icn-yellow { background: linear-gradient(135deg, #FFE765 0%, var(--c-yellow) 60%, #F2B600 100%); color: var(--c-navy); }
+    .pledge-icn-pink   { background: linear-gradient(135deg, #FF87B2 0%, var(--c-pink) 60%, #C82862 100%); }
+    .pledge-icn-sky    { background: linear-gradient(135deg, #5fdaef 0%, var(--c-sky) 60%, #1a9fbf 100%); }
+    .pledge-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .pledge-text strong {
+      font-family: var(--font-rounded);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--c-navy);
+      letter-spacing: -0.005em;
+      line-height: 1.25;
+    }
+    .pledge-text span {
+      font-size: 13.5px;
+      color: var(--ink-2);
+      line-height: 1.45;
+    }
 
     /* ═══════════════════════════════════════════════════════════
        FLAVORS — three cards in brand colors
@@ -1275,9 +1330,10 @@
             Premium <span class="slice">shaved ice</span> for every event you can dream up.
           </h1>
           <p class="hero-sub">
-            Family-owned and proudly serving Northeast Pennsylvania. From backyard
-            birthdays to community fairs, we bring the cool — three signature
-            flavors made for sunny days and standout memories.
+            Family-owned and proudly serving Northeast Pennsylvania. Three signature
+            flavors made from scratch with <strong>fresh-squeezed real fruit</strong> —
+            no artificial syrups, no dyes, no HFCS. Just pure, natural flavor for
+            every event we serve.
           </p>
 
           <div class="flavors-row" aria-label="Signature flavors">
@@ -1334,6 +1390,12 @@
             school festival, or a sun-soaked sports tournament, we show up
             prepared, professional, and ready to make a moment kids and grown-ups
             will remember.
+          </p>
+          <p>
+            And we don't cut corners on what goes in the cup. Our nectars are
+            <strong>made from scratch in our own kitchen</strong> with fresh-squeezed
+            real fruit — never artificial syrups, dyes, or high-fructose corn syrup.
+            It's the kind of difference parents notice on the first taste.
           </p>
           <p>
             Everything we do is local — we live here, we play here, and we love
@@ -1401,35 +1463,71 @@
     <div class="wrap">
       <div class="reveal">
         <span class="sec-label">Signature Flavors</span>
-        <h2 class="sec-title">Three flavors. All crowd-pleasers.</h2>
+        <h2 class="sec-title">Three flavors. <span class="slice">Made from scratch.</span></h2>
         <p class="sec-intro">
-          We keep it simple and exceptional — bright, balanced syrups over fluffy
-          fresh shaved ice. Easy choice for kids, refreshing for adults.
+          Every cup starts with <strong>real fruit, hand-squeezed in our kitchen</strong>.
+          No artificial syrups, no high-fructose corn syrup, no dyes — just bright,
+          balanced nectars made fresh and poured over fluffy shaved ice. The way
+          shaved ice was meant to taste.
         </p>
       </div>
+
+      <!-- ━━━ FRESHNESS PLEDGE ━━━ -->
+      <div class="freshness-pledge reveal" role="list" aria-label="Our freshness pledge">
+        <div class="pledge-card" role="listitem">
+          <div class="pledge-icn pledge-icn-yellow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 4.5 5 4.5 9c0 5 3.5 13 7.5 13s7.5-8 7.5-13c0-4-3.5-7-7.5-7z"/><path d="M12 8v6"/><path d="M9 11h6"/></svg>
+          </div>
+          <div class="pledge-text">
+            <strong>Fresh-squeezed real fruit</strong>
+            <span>Lemons, oranges, and strawberries pressed by hand — not poured from a jug.</span>
+          </div>
+        </div>
+
+        <div class="pledge-card" role="listitem">
+          <div class="pledge-icn pledge-icn-pink" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-12V4l-8-2-8 2v6c0 8 8 12 8 12z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="pledge-text">
+            <strong>No artificial anything</strong>
+            <span>Zero artificial syrups, dyes, flavors, or high-fructose corn syrup. Ever.</span>
+          </div>
+        </div>
+
+        <div class="pledge-card" role="listitem">
+          <div class="pledge-icn pledge-icn-sky" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v6a4 4 0 0 0 8 0V2"/><path d="M6 2h8"/><path d="M10 12v10"/><path d="M6 22h8"/></svg>
+          </div>
+          <div class="pledge-text">
+            <strong>Made from scratch, on-site</strong>
+            <span>Nectars cooked in our kitchen and served fresh at every event we book.</span>
+          </div>
+        </div>
+      </div>
+
       <div class="flavors-grid">
         <article class="flavor-card lemonade reveal">
           <div class="flavor-card-inner">
             <div class="flavor-num">01</div>
-            <span class="flavor-tag">Classic</span>
+            <span class="flavor-tag">Hand-Squeezed</span>
             <h3 class="flavor-name">Lemonade</h3>
-            <p class="flavor-desc">Bright, tart, and unmistakably summer. Our most-requested classic.</p>
+            <p class="flavor-desc">Real lemons, hand-squeezed and gently sweetened. Bright, tart, and all-natural — the way lemonade was meant to taste.</p>
           </div>
         </article>
         <article class="flavor-card orange-l reveal">
           <div class="flavor-card-inner">
             <div class="flavor-num">02</div>
-            <span class="flavor-tag">Crowd Favorite</span>
+            <span class="flavor-tag">Real Citrus Blend</span>
             <h3 class="flavor-name">Orange Lemonade</h3>
-            <p class="flavor-desc">Sweet citrus blend, balanced and refreshing — the perfect middle ground.</p>
+            <p class="flavor-desc">Fresh oranges and lemons squeezed and blended in-house. Sweet, citrusy, and balanced — our most-requested signature.</p>
           </div>
         </article>
         <article class="flavor-card strawberry reveal">
           <div class="flavor-card-inner">
             <div class="flavor-num">03</div>
-            <span class="flavor-tag">Kids' Pick</span>
+            <span class="flavor-tag">Real Strawberries</span>
             <h3 class="flavor-name">Strawberry</h3>
-            <p class="flavor-desc">Classic ripe strawberry — the flavor every kid points to first.</p>
+            <p class="flavor-desc">Ripe strawberries, hand-pressed into every cup. Pure, natural fruit flavor — the one every kid points to first.</p>
           </div>
         </article>
       </div>

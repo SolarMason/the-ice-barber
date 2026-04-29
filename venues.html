@@ -90,83 +90,94 @@
         linear-gradient(180deg, var(--bg-1), var(--bg-2));
     }
 
-    a { color: inherit; }
+    a { color: var(--c-deep); text-decoration: none; }
 
     /* ═══════════════════════════════════════════════════════════
-       NAV (matches index.html)
+       TOP NAV — iOS large title style with glass (matches index.html)
     ═══════════════════════════════════════════════════════════ */
     .nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: calc(var(--sat) + 10px) calc(var(--sar) + 18px) 10px calc(var(--sal) + 18px);
-      background: rgba(240, 248, 254, 0.75);
+      background: rgba(240, 248, 254, 0.72);
       backdrop-filter: saturate(180%) blur(28px);
       -webkit-backdrop-filter: saturate(180%) blur(28px);
       border-bottom: 1px solid var(--line);
+      padding-top: var(--sat);
+      transition: background .3s var(--ease-ios), border-color .3s;
+    }
+    .nav.scrolled {
+      background: rgba(240, 248, 254, 0.88);
+      border-bottom-color: var(--line-strong);
     }
     .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
+      height: 56px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 max(20px, var(--sal)) 0 max(20px, var(--sar));
     }
     .nav-brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
-      color: var(--c-navy);
       font-family: var(--font-rounded);
       font-weight: 700;
       font-size: 17px;
       letter-spacing: -0.01em;
+      color: var(--c-navy);
+      text-decoration: none;
     }
     .nav-brand-logo {
       width: 36px;
       height: 36px;
-      border-radius: 50%;
-      background: white;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #DAEFFE, var(--c-sky));
       display: grid;
       place-items: center;
-      box-shadow: var(--glass-shadow);
+      box-shadow: 0 2px 8px rgba(41, 195, 229, 0.35), inset 0 1px 0 rgba(255,255,255,0.6);
       overflow: hidden;
-      flex-shrink: 0;
     }
     .nav-brand-logo img { width: 90%; height: auto; }
     .nav-links {
       display: flex;
       gap: 4px;
-      flex: 1;
-      justify-content: center;
+      align-items: center;
     }
     .nav-links a {
       padding: 8px 14px;
       border-radius: var(--r-pill);
-      text-decoration: none;
       color: var(--ink-2);
       font-weight: 500;
       font-size: 15px;
       transition: background .2s, color .2s;
+      text-decoration: none;
     }
-    .nav-links a:hover { background: var(--glass); color: var(--c-navy); }
+    .nav-links a:hover { background: rgba(8, 78, 137, 0.08); color: var(--c-navy); }
     .nav-links a.active { background: var(--c-navy); color: white; }
     .nav-cta {
-      display: grid;
-      place-items: center;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #5fdaef, var(--c-sky));
-      color: white;
-      box-shadow: var(--glass-shadow);
-      transition: transform .15s var(--ease-ios);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #34C759 0%, #2BAE4C 100%);
+      color: white !important;
+      box-shadow: 0 2px 6px rgba(43, 174, 76, 0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+      transition: transform .15s var(--ease-spring), box-shadow .2s, filter .2s;
+      flex-shrink: 0;
     }
-    .nav-cta:hover { transform: scale(1.05); }
-    @media (max-width: 760px) {
+    .nav-cta svg { display: block; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(43, 174, 76, 0.4), inset 0 1px 0 rgba(255,255,255,0.3); filter: brightness(1.05); }
+    .nav-cta:active { transform: scale(0.92); }
+
+    @media (max-width: 720px) {
       .nav-links { display: none; }
     }
-
     /* ═══════════════════════════════════════════════════════════
        HERO
     ═══════════════════════════════════════════════════════════ */
