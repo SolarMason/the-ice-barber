@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+  <title>Marketing Materials &amp; Media Kit · The Ice Barber</title>
+  <meta name="description" content="Download print-ready marketing materials for The Ice Barber LLC — flyers, posters, postcards, business cards, and more. All eco-friendly, mindfully designed for recyclable paper." />
+  <meta name="theme-color" content="#F0F8FE" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       Design tokens (matched to index.html / venues.html)
+    ═══════════════════════════════════════════════════════════ */
+    :root {
+      --c-pink:   #EE407F;
+      --c-orange: #F7931E;
+      --c-yellow: #FFD42D;
+      --c-sky:    #29C3E5;
+      --c-navy:   #022658;
+      --c-deep:   #084E89;
+      --c-leaf:   #5B7A3F;
+
+      --bg-1: #F0F8FE;
+      --bg-2: #DCEEFB;
+      --ink-1: #0A1A2E;
+      --ink-2: #2A3A52;
+      --ink-3: #5C6B82;
+      --ink-4: #8C99AE;
+      --line: rgba(8, 78, 137, 0.08);
+      --line-strong: rgba(8, 78, 137, 0.16);
+
+      --glass: rgba(255, 255, 255, 0.65);
+      --glass-strong: rgba(255, 255, 255, 0.82);
+      --glass-tinted: rgba(220, 240, 252, 0.60);
+      --glass-border: rgba(255, 255, 255, 0.55);
+      --glass-shadow: 0 10px 30px rgba(2, 38, 88, 0.10), 0 2px 6px rgba(2, 38, 88, 0.06);
+      --glass-shadow-lg: 0 24px 60px rgba(2, 38, 88, 0.15), 0 8px 20px rgba(2, 38, 88, 0.08);
+      --glass-inner: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+      --r-sm: 12px;
+      --r-md: 18px;
+      --r-lg: 24px;
+      --r-xl: 32px;
+      --r-pill: 999px;
+
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+      --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+      --font-rounded: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+
+      --ease-ios: cubic-bezier(0.32, 0.72, 0, 1);
+
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --sal: env(safe-area-inset-left, 0px);
+      --sar: env(safe-area-inset-right, 0px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: var(--font-text);
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--ink-1);
+      background: var(--bg-1);
+      min-height: 100vh;
+      padding-bottom: calc(80px + var(--sab));
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(247, 147, 30, 0.12), transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(41, 195, 229, 0.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    }
+
+    a { color: inherit; }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAV (matches index.html)
+    ═══════════════════════════════════════════════════════════ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: calc(var(--sat) + 10px) calc(var(--sar) + 18px) 10px calc(var(--sal) + 18px);
+      background: rgba(240, 248, 254, 0.75);
+      backdrop-filter: saturate(180%) blur(28px);
+      -webkit-backdrop-filter: saturate(180%) blur(28px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--c-navy);
+      font-family: var(--font-rounded);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+    }
+    .nav-brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--glass-shadow);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .nav-brand-logo img { width: 90%; height: auto; }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: var(--r-pill);
+      text-decoration: none;
+      color: var(--ink-2);
+      font-weight: 500;
+      font-size: 15px;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover { background: var(--glass); color: var(--c-navy); }
+    .nav-links a.active { background: var(--c-navy); color: white; }
+    .nav-cta {
+      display: grid;
+      place-items: center;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5fdaef, var(--c-sky));
+      color: white;
+      box-shadow: var(--glass-shadow);
+      transition: transform .15s var(--ease-ios);
+    }
+    .nav-cta:hover { transform: scale(1.05); }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════ */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(40px, 7vw, 80px) clamp(20px, 4vw, 40px) clamp(24px, 4vw, 40px);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--glass-strong);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-deep);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      box-shadow: var(--glass-shadow);
+    }
+    .hero-eyebrow::before {
+      content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--c-leaf);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin: 18px 0 14px;
+    }
+    .hero h1 em { font-style: normal; color: var(--c-orange); }
+    .hero p {
+      font-size: clamp(16px, 1.7vw, 19px);
+      color: var(--ink-2);
+      max-width: 680px;
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       BUNDLE BANNER — prominent zip download
+    ═══════════════════════════════════════════════════════════ */
+    .bundle-banner {
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding: 28px clamp(20px, 4vw, 36px);
+      background: linear-gradient(135deg, rgba(238, 64, 127, 0.08), rgba(247, 147, 30, 0.08));
+      border: 1px solid rgba(238, 64, 127, 0.20);
+      border-radius: var(--r-xl);
+      box-shadow: var(--glass-shadow), var(--glass-inner);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 760px) { .bundle-banner { margin-left: 18px; margin-right: 18px; } }
+    .bundle-icn {
+      flex-shrink: 0;
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--c-pink), var(--c-orange));
+      display: grid; place-items: center;
+      color: white;
+      box-shadow: 0 8px 24px rgba(238, 64, 127, 0.32);
+    }
+    .bundle-icn svg { width: 32px; height: 32px; }
+    .bundle-text {
+      flex: 1 1 240px;
+      min-width: 0;
+    }
+    .bundle-text h2 {
+      margin: 0 0 4px;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--c-navy);
+      letter-spacing: -0.015em;
+    }
+    .bundle-text p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+    .bundle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: var(--r-pill);
+      background: var(--c-navy);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 8px 24px rgba(2, 38, 88, 0.25);
+      transition: transform .15s var(--ease-ios);
+    }
+    .bundle-btn:hover { transform: translateY(-2px); }
+    .bundle-btn svg { width: 18px; height: 18px; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SECTION HEADERS
+    ═══════════════════════════════════════════════════════════ */
+    .section-head {
+      max-width: 1100px;
+      margin: 56px auto 16px;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3.4vw, 32px);
+      letter-spacing: -0.02em;
+      color: var(--c-navy);
+      margin: 0 0 6px;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 16px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PDF GRID
+    ═══════════════════════════════════════════════════════════ */
+    .pdf-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .pdf-card {
+      background: var(--glass-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--glass-shadow), var(--glass-inner);
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s var(--ease-ios), box-shadow .2s;
+    }
+    .pdf-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--glass-shadow-lg), var(--glass-inner);
+    }
+    .pdf-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5.5;
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, #FAF6EC, #F0E8D6);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    /* Decorative paper sheet style */
+    .pdf-thumb::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 4px 16px rgba(2,38,88,0.10);
+    }
+    .pdf-icn {
+      position: relative;
+      z-index: 1;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: var(--glass-inner);
+    }
+    .pdf-icn svg { width: 28px; height: 28px; }
+    .pdf-icn-pink   { background: linear-gradient(135deg, #ff8eb4, var(--c-pink)); }
+    .pdf-icn-yellow { background: linear-gradient(135deg, var(--c-yellow), #f0c020); }
+    .pdf-icn-sky    { background: linear-gradient(135deg, #5fdaef, var(--c-sky)); }
+    .pdf-icn-orange { background: linear-gradient(135deg, #ffd270, var(--c-orange)); }
+    .pdf-icn-leaf   { background: linear-gradient(135deg, #87a560, var(--c-leaf)); }
+    .pdf-icn-navy   { background: linear-gradient(135deg, var(--c-deep), var(--c-navy)); }
+
+    .pdf-meta-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      padding: 4px 10px;
+      background: rgba(2, 38, 88, 0.75);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: var(--r-pill);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .pdf-name {
+      font-family: var(--font-rounded);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--c-navy);
+      letter-spacing: -0.005em;
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .pdf-desc {
+      font-size: 14px;
+      color: var(--ink-3);
+      line-height: 1.45;
+      margin: 0 0 14px;
+      flex: 1;
+    }
+    .pdf-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .pdf-btn {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: var(--r-pill);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      transition: transform .15s var(--ease-ios), background .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .pdf-btn-primary {
+      background: var(--c-navy);
+      color: white;
+      box-shadow: 0 4px 12px rgba(2, 38, 88, 0.20);
+    }
+    .pdf-btn-primary:hover { transform: translateY(-1px); }
+    .pdf-btn-secondary {
+      background: white;
+      color: var(--c-navy);
+      border: 1.5px solid var(--line-strong);
+    }
+    .pdf-btn-secondary:hover { background: var(--bg-1); }
+    .pdf-btn svg { width: 14px; height: 14px; }
+
+    /* ═══════════════════════════════════════════════════════════
+       PRINT RECOMMENDATIONS
+    ═══════════════════════════════════════════════════════════ */
+    .print-rec {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+    .print-card {
+      background: linear-gradient(135deg, rgba(91, 122, 63, 0.06), rgba(91, 122, 63, 0.02));
+      border: 1px solid rgba(91, 122, 63, 0.20);
+      border-radius: var(--r-xl);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--glass-shadow), var(--glass-inner);
+    }
+    .leaf-icn {
+      display: inline-grid;
+      place-items: center;
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #87a560, var(--c-leaf));
+      color: white;
+      box-shadow: var(--glass-inner);
+      margin-bottom: 14px;
+    }
+    .leaf-icn svg { width: 22px; height: 22px; }
+    .print-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: -0.015em;
+      color: var(--c-navy);
+      margin: 0 0 8px;
+    }
+    .print-card > p {
+      color: var(--ink-2);
+      font-size: 15.5px;
+      line-height: 1.55;
+      margin: 0 0 22px;
+    }
+    .rec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .rec-item {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      box-shadow: var(--glass-inner);
+    }
+    .rec-tag {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: var(--r-pill);
+      background: rgba(91, 122, 63, 0.12);
+      color: var(--c-leaf);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .rec-name {
+      font-family: var(--font-rounded);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin: 0 0 4px;
+    }
+    .rec-desc {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .rec-desc a { color: var(--c-deep); text-decoration: none; font-weight: 600; }
+    .rec-desc a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════════════════════
+       USAGE TIPS
+    ═══════════════════════════════════════════════════════════ */
+    .tips {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+    .tips-card {
+      background: var(--glass-strong);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-xl);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--glass-shadow), var(--glass-inner);
+    }
+    .tips-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: -0.015em;
+      color: var(--c-navy);
+      margin: 0 0 14px;
+    }
+    .tips-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .tips-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+    .tips-list strong { color: var(--c-navy); }
+    .tips-bullet {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(41, 195, 229, 0.15);
+      color: var(--c-deep);
+      display: grid; place-items: center;
+      font-weight: 700;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    /* Footer */
+    .page-footer {
+      max-width: 1100px;
+      margin: 60px auto 30px;
+      padding: 0 clamp(18px, 4vw, 40px);
+      text-align: center;
+      color: var(--ink-3);
+      font-size: 13px;
+    }
+    .page-footer p { margin: 6px 0; }
+    .page-footer a { color: var(--c-deep); text-decoration: none; font-weight: 600; }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* Bottom tab bar */
+    .tabbar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 90;
+      padding: 8px calc(var(--sar) + 10px) calc(var(--sab) + 8px) calc(var(--sal) + 10px);
+      background: rgba(240, 248, 254, 0.85);
+      backdrop-filter: saturate(180%) blur(28px);
+      -webkit-backdrop-filter: saturate(180%) blur(28px);
+      border-top: 1px solid var(--line);
+    }
+    .tabbar-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .tabbar a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 6px 4px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--ink-3);
+      transition: color .2s, background .2s;
+    }
+    .tabbar a.active { color: var(--c-navy); }
+    .tabbar a svg { width: 22px; height: 22px; }
+    .tabbar a span {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 760px) {
+      .tabbar { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-logo"><img src="icon-180.png" alt="" /></span>
+        <span>The Ice Barber</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#flavors">Flavors</a>
+        <a href="index.html#events">Events</a>
+        <a href="venues.html">Venues</a>
+        <a href="media.html" class="active">Media</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#book">Book</a>
+      </nav>
+      <a href="tel:+15702511996" class="nav-cta" aria-label="Call (570) 251-1996" title="Call (570) 251-1996">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-eyebrow">Mindfully Printed · Eco Edition</span>
+    <h1>Marketing &amp; <em>Media Kit</em>.</h1>
+    <p>Print-ready PDFs for every kind of event. Each piece was designed for cream-colored recycled stock with brand colors as accents — using roughly 70&ndash;85% less ink than full-bleed designs while still feeling unmistakably <em>The Ice Barber</em>. Download individually or grab the whole bundle.</p>
+  </section>
+
+  <!-- BUNDLE BANNER -->
+  <div class="bundle-banner">
+    <div class="bundle-icn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    </div>
+    <div class="bundle-text">
+      <h2>Complete marketing kit</h2>
+      <p>All 8 pieces · ~3.6 MB · ZIP archive · Ready for print or distribution</p>
+    </div>
+    <a href="media/icebarber-marketing-kit.zip" class="bundle-btn" download>
+      Download bundle
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </a>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━ INDIVIDUAL PIECES ━━━━━━━━━━━━━━━━━━ -->
+  <div class="section-head">
+    <h2>Individual pieces</h2>
+    <p>Each ready to print. Tap any item for the print-ready PDF.</p>
+  </div>
+
+  <div class="pdf-grid">
+
+    <!-- 01 BUSINESS CARD -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-pink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+        </div>
+        <span class="pdf-meta-tag">3.5″ × 2″ + bleed</span>
+      </div>
+      <h3 class="pdf-name">Business Card</h3>
+      <p class="pdf-desc">Standard 3.5×2 with bleed. Front shows logo and tagline; back is the contact card with QR code.</p>
+      <div class="pdf-actions">
+        <a href="media/01-business-card.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/01-business-card.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 02 FLYER -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-yellow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <span class="pdf-meta-tag">8.5″ × 11″</span>
+      </div>
+      <h3 class="pdf-name">Standard Flyer</h3>
+      <p class="pdf-desc">Letter-size single-page flyer. Hero, three flavor cards, event use cases, and contact info. Great for community boards.</p>
+      <div class="pdf-actions">
+        <a href="media/02-flyer.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/02-flyer.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 03 DOOR HANGER -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-sky">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2"/><path d="M9 22V8h6v14"/></svg>
+        </div>
+        <span class="pdf-meta-tag">4.25″ × 11″</span>
+      </div>
+      <h3 class="pdf-name">Door Hanger</h3>
+      <p class="pdf-desc">Tall format with knob clearance. Perfect for door-to-door campaigns in target neighborhoods.</p>
+      <div class="pdf-actions">
+        <a href="media/03-door-hanger.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/03-door-hanger.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 04 POSTCARD -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <span class="pdf-meta-tag">6″ × 4.25″ USPS</span>
+      </div>
+      <h3 class="pdf-name">Postcard</h3>
+      <p class="pdf-desc">USPS-compliant postcard size for direct mail. Front promotes the brand, back is mail-ready.</p>
+      <div class="pdf-actions">
+        <a href="media/04-postcard.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/04-postcard.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 05 RACK CARD -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-leaf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="10" x2="15" y2="10"/></svg>
+        </div>
+        <span class="pdf-meta-tag">4″ × 9″</span>
+      </div>
+      <h3 class="pdf-name">Rack Card</h3>
+      <p class="pdf-desc">Standard tourist-rack format for hotels, info centers, and visitor displays. CTA-forward layout with QR.</p>
+      <div class="pdf-actions">
+        <a href="media/05-rack-card.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/05-rack-card.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 06 TEAR-OFF FLYER -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-pink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="6" y1="16" x2="18" y2="16" stroke-dasharray="2 2"/><line x1="8" y1="20" x2="8" y2="22"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="16" y1="20" x2="16" y2="22"/></svg>
+        </div>
+        <span class="pdf-meta-tag">8.5″ × 11″ · 10 tabs</span>
+      </div>
+      <h3 class="pdf-name">Tear-off Tab Flyer</h3>
+      <p class="pdf-desc">Bulletin-board classic. Pin it up, passers-by tear off a phone-number tab. Wide tabs for thumb-friendly tearing.</p>
+      <div class="pdf-actions">
+        <a href="media/06-tearoff-flyer.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/06-tearoff-flyer.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 07 EVENT SALES SHEET -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-navy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+        </div>
+        <span class="pdf-meta-tag">8.5″ × 11″ · B2B</span>
+      </div>
+      <h3 class="pdf-name">Event Sales Sheet</h3>
+      <p class="pdf-desc">Professional one-pager for venue managers, event planners, and corporate clients. Service details and inquiry CTA.</p>
+      <div class="pdf-actions">
+        <a href="media/07-event-sales-sheet.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/07-event-sales-sheet.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+    <!-- 08 POSTER -->
+    <article class="pdf-card">
+      <div class="pdf-thumb">
+        <div class="pdf-icn pdf-icn-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <span class="pdf-meta-tag">11″ × 17″</span>
+      </div>
+      <h3 class="pdf-name">Tabloid Poster</h3>
+      <p class="pdf-desc">Large-format poster for windows, walls, and event boards. Big, bold, and built to be seen from across a room.</p>
+      <div class="pdf-actions">
+        <a href="media/08-poster.pdf" class="pdf-btn pdf-btn-primary" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a href="media/08-poster.pdf" target="_blank" rel="noopener" class="pdf-btn pdf-btn-secondary">View</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━ PRINT RECOMMENDATIONS ━━━━━━━━━━━━━━━━━━ -->
+  <div class="section-head">
+    <h2>Print recommendations</h2>
+    <p>These designs are optimized for recycled, uncoated, cream-toned paper stocks. Here are the specs and shops we recommend.</p>
+  </div>
+
+  <div class="print-rec">
+    <div class="print-card">
+      <div class="leaf-icn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c.91 6.29.93 8.93-1.83 11.42-2.7 2.43-6.34 2.62-9.37 1.62"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+      </div>
+      <h3>Recommended paper stocks</h3>
+      <p>Cream uncoated stocks bring out the brand's warmth and let the eco design shine. Look for high post-consumer recycled content (PCW).</p>
+      <div class="rec-grid">
+        <div class="rec-item">
+          <span class="rec-tag">100% PCW</span>
+          <h4 class="rec-name">Mohawk Loop</h4>
+          <p class="rec-desc">Premium PCW recycled. Cream and ivory shades available. Great feel for cards and flyers.</p>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag">FSC Certified</span>
+          <h4 class="rec-name">Domtar EarthChoice</h4>
+          <p class="rec-desc">Mid-range eco-friendly stock with FSC certification. Widely available for short runs.</p>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag">100% Recycled</span>
+          <h4 class="rec-name">Rolland Enviro</h4>
+          <p class="rec-desc">Carbon-neutral, 100% post-consumer fiber. Perfect for eco-forward branding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECO PRINTERS -->
+  <div class="section-head" style="margin-top:32px;">
+    <h2>Eco-conscious printers</h2>
+    <p>Online and local print shops with strong sustainability commitments.</p>
+  </div>
+
+  <div class="print-rec">
+    <div class="print-card" style="background: linear-gradient(135deg, rgba(41,195,229,0.06), rgba(41,195,229,0.02)); border-color: rgba(41,195,229,0.20);">
+      <div class="rec-grid">
+        <div class="rec-item">
+          <span class="rec-tag" style="background:rgba(41,195,229,0.12); color:var(--c-deep);">Online</span>
+          <h4 class="rec-name">GreenerPrinter</h4>
+          <p class="rec-desc">100% recycled options, soy-based inks, wind-powered printing. <a href="https://greenerprinter.com" target="_blank" rel="noopener">greenerprinter.com</a></p>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag" style="background:rgba(41,195,229,0.12); color:var(--c-deep);">Online</span>
+          <h4 class="rec-name">Conscious Minds Printing</h4>
+          <p class="rec-desc">Custom cards, flyers, posters with sustainability focus.</p>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag" style="background:rgba(41,195,229,0.12); color:var(--c-deep);">Local</span>
+          <h4 class="rec-name">Local NEPA print shops</h4>
+          <p class="rec-desc">Many Scranton &amp; Wilkes-Barre print shops can source recycled stock — just ask for "100% PCW recycled cream uncoated" when you place your order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━ USAGE TIPS ━━━━━━━━━━━━━━━━━━ -->
+  <div class="tips">
+    <div class="tips-card">
+      <h3>Distribution tips</h3>
+      <ul class="tips-list">
+        <li><div class="tips-bullet">1</div><div><strong>Business cards</strong> work everywhere — give a stack to every venue, vendor, and event partner you work with. Always carry some in your wallet.</div></li>
+        <li><div class="tips-bullet">2</div><div><strong>Tear-off flyers</strong> live on community bulletin boards: laundromats, coffee shops, libraries, grocery stores, gym corkboards. Bring a thumbtack.</div></li>
+        <li><div class="tips-bullet">3</div><div><strong>Door hangers</strong> are perfect for targeted neighborhoods near upcoming events — check zoning rules, never put in mailboxes (USPS violation).</div></li>
+        <li><div class="tips-bullet">4</div><div><strong>Postcards</strong> can be hand-delivered or mailed. EDDM (Every Door Direct Mail) through USPS is cost-effective for blanket campaigns by ZIP route.</div></li>
+        <li><div class="tips-bullet">5</div><div><strong>Rack cards</strong> live in tourist info displays, hotel lobbies, and visitor centers across NEPA. Hand-deliver a stack and refresh every few months.</div></li>
+        <li><div class="tips-bullet">6</div><div><strong>Sales sheets</strong> are for B2B — leave with banquet managers, wedding planners, school activity coordinators, and event center directors as a take-away.</div></li>
+        <li><div class="tips-bullet">7</div><div><strong>Posters</strong> get attention in high-foot-traffic windows: pizza shops, barber shops, ice cream stands, breweries. Trade with other small businesses.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p><strong>Need a custom piece?</strong> We're happy to help.</p>
+    <p><a href="index.html#book">Get in touch</a> · <a href="tel:+15702511996">(570) 251-1996</a> · <a href="mailto:theicebarber@gmail.com">theicebarber@gmail.com</a></p>
+    <p style="margin-top:24px;font-size:12px;color:var(--ink-4);">All marketing PDFs licensed for use by The Ice Barber LLC and its authorized partners. Family-Owned · Mindfully Printed on Recyclable Paper · NEPA</p>
+  </footer>
+
+  <!-- BOTTOM TAB BAR -->
+  <nav class="tabbar" aria-label="Quick navigation">
+    <div class="tabbar-grid">
+      <a href="index.html#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V21a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2V9.5z"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="venues.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Venues</span>
+      </a>
+      <a href="index.html#events">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Events</span>
+      </a>
+      <a href="media.html" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Media</span>
+      </a>
+      <a href="index.html#book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span>Book</span>
+      </a>
+    </div>
+  </nav>
+
+</body>
+</html>

@@ -939,9 +939,20 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+      /* iOS Safari: prevent any child input intrinsic-width spillage */
+      max-width: 100%;
+      min-width: 0;
     }
-    @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
-    .field { display: flex; flex-direction: column; gap: 7px; }
+    /* Stack 2-col field rows earlier — date/time pickers need real estate on iOS */
+    @media (max-width: 720px) { .field-row { grid-template-columns: 1fr; } }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-width: 0;        /* allow grid cell to shrink below content size */
+      max-width: 100%;
+      overflow: hidden;     /* belt-and-braces: clip any overflow on iOS Safari */
+    }
     .field label {
       font-size: 13px;
       font-weight: 600;
@@ -951,7 +962,10 @@
     }
     .field label .req { color: var(--c-pink); margin-left: 2px; }
     .field input, .field select, .field textarea {
+      box-sizing: border-box;   /* explicit even though global; iOS bug guard */
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
       padding: 14px 16px;
       border-radius: var(--r-md);
       border: 1.5px solid var(--line-strong);
@@ -960,6 +974,31 @@
       color: var(--c-navy);
       transition: border-color .2s, box-shadow .2s, background .2s;
       font-family: inherit;
+    }
+    /* iOS Safari natively renders date/time inputs with intrinsic sizing
+       that ignores width:100% and overflows narrow grid cells. Aggressive normalize. */
+    .field input[type="date"],
+    .field input[type="time"] {
+      -webkit-appearance: none;
+      appearance: none;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      min-height: 50px;
+      padding: 14px 12px;       /* slightly tighter to fit narrower grid cells */
+      /* prevent iOS from forcing intrinsic min-content width */
+      font-variant-numeric: tabular-nums;
+    }
+    .field input[type="date"]::-webkit-date-and-time-value,
+    .field input[type="time"]::-webkit-date-and-time-value {
+      text-align: left;
+      min-height: 1.4em;
+    }
+    .field input[type="date"]::-webkit-calendar-picker-indicator,
+    .field input[type="time"]::-webkit-calendar-picker-indicator {
+      margin-left: 4px;
+      opacity: 0.7;
     }
     .field textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
     .field input:focus, .field select:focus, .field textarea:focus {
@@ -1121,7 +1160,7 @@
     }
     .tabbar-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 4px;
     }
     .tabbar a {
@@ -1212,6 +1251,8 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#flavors">Flavors</a>
         <a href="#events">Events</a>
+        <a href="venues.html">Venues</a>
+        <a href="media.html">Media</a>
         <a href="#about">About</a>
         <a href="#book">Book</a>
       </nav>
@@ -1693,13 +1734,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V21a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2V9.5z"/></svg>
         <span>Home</span>
       </a>
-      <a href="#flavors" data-tab="flavors">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        <span>Flavors</span>
+      <a href="venues.html" data-tab="venues">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Venues</span>
       </a>
       <a href="#events" data-tab="events">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         <span>Events</span>
+      </a>
+      <a href="media.html" data-tab="media">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Media</span>
       </a>
       <a href="#book" data-tab="book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
