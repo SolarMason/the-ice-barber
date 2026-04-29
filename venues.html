@@ -262,51 +262,211 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
-       TABS
+       VENUE FILTER — search + category chips (replaces old scroll tabs)
     ═══════════════════════════════════════════════════════════ */
-    .tabs-wrap {
+    .venue-filter {
       max-width: 1100px;
       margin: 32px auto 0;
-      padding: 0 clamp(18px, 4vw, 40px);
-    }
-    .tabs {
-      display: flex;
-      gap: 6px;
-      padding: 6px;
+      padding: clamp(20px, 3vw, 28px) clamp(20px, 4vw, 32px);
       background: var(--glass-strong);
       backdrop-filter: blur(28px) saturate(180%);
       -webkit-backdrop-filter: blur(28px) saturate(180%);
       border: 1px solid var(--glass-border);
-      border-radius: var(--r-pill);
+      border-radius: var(--r-xl);
       box-shadow: var(--glass-shadow), var(--glass-inner);
-      overflow-x: auto;
-      scrollbar-width: none;
     }
-    .tabs::-webkit-scrollbar { display: none; }
-    .tabs input[type="radio"] { display: none; }
-    .tabs label {
-      flex: 1 0 auto;
-      padding: 12px 18px;
-      border-radius: var(--r-pill);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--ink-2);
-      cursor: pointer;
-      text-align: center;
-      white-space: nowrap;
-      transition: background .2s, color .2s, box-shadow .2s;
+    .filter-header {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .filter-header-icn {
+      width: 38px; height: 38px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #DAEFFE, var(--c-sky));
+      display: grid; place-items: center;
+      color: white;
+      box-shadow: 0 2px 8px rgba(41, 195, 229, 0.30), inset 0 1px 0 rgba(255,255,255,0.45);
+    }
+    .filter-header-icn svg { width: 20px; height: 20px; }
+    .filter-header h2 {
+      font-family: var(--font-rounded);
+      font-size: clamp(20px, 3vw, 24px);
+      font-weight: 800;
+      color: var(--c-navy);
+      letter-spacing: -0.015em;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .filter-sub {
+      font-size: 14px;
+      color: var(--ink-2);
+      margin: 0 0 18px 50px;
+      line-height: 1.45;
+    }
+    .filter-sub strong { color: var(--c-navy); font-weight: 600; }
+    @media (max-width: 540px) { .filter-sub { margin-left: 0; } }
+
+    /* Search input */
+    .venue-search {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .venue-search .search-icn {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px; height: 18px;
+      color: var(--ink-3);
+      pointer-events: none;
+    }
+    .venue-search input {
+      width: 100%;
+      padding: 14px 50px 14px 46px;
+      border-radius: var(--r-pill);
+      background: white;
+      border: 1px solid var(--line-strong);
+      font-size: 16px;
+      color: var(--c-navy);
+      font-family: inherit;
+      box-shadow: var(--glass-inner);
+      transition: box-shadow .2s, border-color .2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .venue-search input::placeholder { color: var(--ink-3); }
+    .venue-search input:focus {
+      outline: none;
+      border-color: var(--c-sky);
+      box-shadow: 0 0 0 3px rgba(41, 195, 229, 0.18);
+    }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px; height: 28px;
+      border: none;
+      background: rgba(8, 78, 137, 0.08);
+      border-radius: 50%;
+      color: var(--c-deep);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      transition: background .2s;
+    }
+    .search-clear:hover { background: rgba(8, 78, 137, 0.16); }
+    .search-clear[hidden] { display: none; }
+
+    /* Category filter chips — wrap, no horizontal scroll */
+    .filter-chips-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 16px 0 10px;
+    }
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
     }
-    .tabs label:hover { color: var(--c-navy); }
-    .tabs label svg { width: 16px; height: 16px; }
-    .tabs input:checked + label {
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: var(--r-pill);
       background: white;
-      color: var(--c-navy);
-      box-shadow: 0 2px 8px rgba(2, 38, 88, 0.10);
+      border: 1px solid var(--line-strong);
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform .15s var(--ease-spring), background .2s, color .2s, box-shadow .2s, border-color .2s;
+      white-space: nowrap;
     }
+    .filter-chip:hover { color: var(--c-navy); transform: translateY(-1px); border-color: var(--c-sky); }
+    .filter-chip svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .chip-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 19px;
+      padding: 0 6px;
+      border-radius: var(--r-pill);
+      background: rgba(8, 78, 137, 0.08);
+      color: var(--ink-3);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .filter-chip.active {
+      background: var(--c-navy);
+      border-color: var(--c-navy);
+      color: white;
+      box-shadow: 0 4px 14px rgba(2, 38, 88, 0.28);
+      transform: translateY(-1px);
+    }
+    .filter-chip.active .chip-count {
+      background: rgba(255, 255, 255, 0.22);
+      color: white;
+    }
+
+    /* Live counter + empty state */
+    .filter-status {
+      max-width: 1100px;
+      margin: 16px auto 0;
+      padding: 0 clamp(20px, 4vw, 40px);
+      font-size: 13px;
+      color: var(--ink-3);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-status strong { color: var(--c-navy); font-weight: 600; }
+    .filter-status .reset-link {
+      color: var(--c-deep);
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: inherit;
+      font-family: inherit;
+      text-decoration: underline;
+    }
+    .filter-status .reset-link:hover { color: var(--c-navy); }
+
+    .empty-state {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 40px 28px;
+      text-align: center;
+      background: var(--glass-tinted);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-xl);
+      box-shadow: var(--glass-inner);
+    }
+    .empty-state h3 {
+      font-family: var(--font-rounded);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin: 0 0 6px;
+    }
+    .empty-state p { font-size: 14px; color: var(--ink-2); margin: 0; }
 
     /* Tab panels */
     .tab-panels {
@@ -314,13 +474,9 @@
       margin: 24px auto 0;
       padding: 0 clamp(18px, 4vw, 40px);
     }
-    .panel { display: none; }
-    #t-parks:checked ~ .tab-panels #p-parks,
-    #t-fire:checked ~ .tab-panels #p-fire,
-    #t-civic:checked ~ .tab-panels #p-civic,
-    #t-lodges:checked ~ .tab-panels #p-lodges {
-      display: block;
-    }
+    /* Default: all panels visible (JS hides them when filtering by category) */
+    .panel { display: block; }
+    .panel[hidden] { display: none; }
 
     .panel-intro {
       padding: 18px 22px;
@@ -733,37 +889,72 @@
     <p><strong>Verify before booking.</strong> Phone numbers, fees, and availability change. Always confirm directly with the venue before finalizing your event. Fire hall rental policies in particular vary widely — most are booked through individual fire companies and may require membership sponsorship for non-profit rates.</p>
   </div>
 
-  <!-- TABS (CSS-only, radio button trick) -->
-  <input type="radio" name="vtab" id="t-parks" checked hidden />
-  <input type="radio" name="vtab" id="t-fire" hidden />
-  <input type="radio" name="vtab" id="t-civic" hidden />
-  <input type="radio" name="vtab" id="t-lodges" hidden />
+  <!-- VENUE FILTER BAR -->
+  <div class="venue-filter">
+    <header class="filter-header">
+      <div class="filter-header-icn" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      </div>
+      <h2>Find a Venue</h2>
+    </header>
+    <p class="filter-sub">
+      <strong>Filter</strong> by category below, or <strong>search</strong> by venue name to find a specific spot.
+    </p>
 
-  <div class="tabs-wrap">
-    <div class="tabs" role="tablist">
-      <label for="t-parks">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Parks &amp; Outdoor
-      </label>
-      <label for="t-fire">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-        Fire Halls
-      </label>
-      <label for="t-civic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M14 17h1"/></svg>
-        Community &amp; Civic
-      </label>
-      <label for="t-lodges">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Halls &amp; Lodges
-      </label>
+    <!-- Search input -->
+    <div class="venue-search">
+      <svg class="search-icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="venue-search-input" placeholder="Search venue name..." autocomplete="off" spellcheck="false" aria-label="Search venues by name" />
+      <button type="button" class="search-clear" id="search-clear" aria-label="Clear search" hidden>×</button>
     </div>
+
+    <!-- Category chips -->
+    <div class="filter-chips-label">Filter by category</div>
+    <div class="filter-chips" role="tablist" aria-label="Filter venues by category">
+      <button type="button" class="filter-chip active" data-category="all" role="tab" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        All Venues
+        <span class="chip-count">403</span>
+      </button>
+      <button type="button" class="filter-chip" data-category="parks" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Parks &amp; Outdoor
+        <span class="chip-count">137</span>
+      </button>
+      <button type="button" class="filter-chip" data-category="fire" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        Fire Halls
+        <span class="chip-count">95</span>
+      </button>
+      <button type="button" class="filter-chip" data-category="civic" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M14 17h1"/></svg>
+        Community &amp; Civic
+        <span class="chip-count">66</span>
+      </button>
+      <button type="button" class="filter-chip" data-category="lodges" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Halls &amp; Lodges
+        <span class="chip-count">105</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Live result counter -->
+  <div class="filter-status" id="filter-status">
+    <span>Showing <strong id="visible-count">403</strong> of <strong>403</strong> venues</span>
+    <button type="button" class="reset-link" id="reset-filters" hidden>Reset filters</button>
+  </div>
+
+  <!-- Empty state (shown when no venues match) -->
+  <div class="empty-state" id="empty-state" hidden>
+    <h3>No venues match your search</h3>
+    <p>Try a different name or reset the filters to see all 403 venues.</p>
   </div>
 
   <!-- TAB PANELS -->
   <div class="tab-panels">
     <!-- ━━━━━━━━━━━━━━━━━━ P-PARKS PANEL ━━━━━━━━━━━━━━━━━━ -->
-    <section class="panel" id="p-parks">
+    <section class="panel" id="p-parks" data-category="parks">
       <div class="panel-intro">
         <h2>State, county &amp; municipal parks</h2>
         <p>NEPA's outdoor venues — full-service state park pavilions with electric and water, county parks with reservable shelters, and free township picnic areas. Most state and county pavilions can be reserved up to 11 months in advance through the official park office.</p>
@@ -5515,7 +5706,7 @@
       </div>
     </section>
     <!-- ━━━━━━━━━━━━━━━━━━ P-FIRE PANEL ━━━━━━━━━━━━━━━━━━ -->
-    <section class="panel" id="p-fire">
+    <section class="panel" id="p-fire" data-category="fire">
       <div class="panel-intro">
         <h2>Fire halls &amp; volunteer companies</h2>
         <p>Volunteer fire company halls across NEPA available for community rentals — birthday parties, anniversaries, banquets, fundraisers, and meetings. Fees support local volunteer fire and EMS services. Always call the company directly to discuss dates, capacity, kitchen/bar use, and any catering rules.</p>
@@ -8487,7 +8678,7 @@
       </div>
     </section>
     <!-- ━━━━━━━━━━━━━━━━━━ P-CIVIC PANEL ━━━━━━━━━━━━━━━━━━ -->
-    <section class="panel" id="p-civic">
+    <section class="panel" id="p-civic" data-category="civic">
       <div class="panel-intro">
         <h2>Community &amp; civic spaces</h2>
         <p>Public squares, libraries, theaters, senior centers, community centers, and university spaces across NEPA. Many libraries offer their meeting rooms free for non-profits and civic groups. Larger venues like the Sherman Theater and F.M. Kirby Center accommodate weddings and major events.</p>
@@ -10609,7 +10800,7 @@
       </div>
     </section>
     <!-- ━━━━━━━━━━━━━━━━━━ P-LODGES PANEL ━━━━━━━━━━━━━━━━━━ -->
-    <section class="panel" id="p-lodges">
+    <section class="panel" id="p-lodges" data-category="lodges">
       <div class="panel-intro">
         <h2>Halls, lodges &amp; fraternal organizations</h2>
         <p>VFW posts, American Legion halls, Knights of Columbus councils, Elks, Moose, and Eagles lodges, plus the rich array of NEPA ethnic heritage halls — Polish, Italian, Slovak, Lithuanian, Croatian and more. Many include a full kitchen and bar; rental fees often support local charitable work.</p>
@@ -14029,6 +14220,122 @@
     // Set footer year
     var yr = document.getElementById('yr');
     if (yr) yr.textContent = new Date().getFullYear();
+
+    /* ═══════════════════════════════════════════════════════════
+       VENUE FILTER — search + category chips
+    ═══════════════════════════════════════════════════════════ */
+    (function () {
+      var searchInput = document.getElementById('venue-search-input');
+      var searchClear = document.getElementById('search-clear');
+      var resetLink   = document.getElementById('reset-filters');
+      var visibleEl   = document.getElementById('visible-count');
+      var emptyState  = document.getElementById('empty-state');
+      var chips       = document.querySelectorAll('.filter-chip');
+      var panels      = document.querySelectorAll('.panel[data-category]');
+      var venues      = document.querySelectorAll('.panel[data-category] details.venue');
+      var TOTAL       = venues.length;
+
+      var activeCategory = 'all';
+      var searchTerm     = '';
+
+      // Pre-cache lowercased searchable text per venue (name + locality)
+      var venueIndex = [];
+      venues.forEach(function (v) {
+        var name     = (v.querySelector('.venue-name')     || {}).textContent || '';
+        var locality = (v.querySelector('.venue-locality') || {}).textContent || '';
+        venueIndex.push({
+          el: v,
+          searchText: (name + ' ' + locality).toLowerCase(),
+          panelCategory: v.closest('.panel').getAttribute('data-category')
+        });
+      });
+
+      function applyFilters() {
+        var visible = 0;
+
+        // 1) Per-venue visibility (category match AND search match)
+        venueIndex.forEach(function (item) {
+          var matchesCategory = (activeCategory === 'all') || (item.panelCategory === activeCategory);
+          var matchesSearch   = !searchTerm || item.searchText.indexOf(searchTerm) !== -1;
+          var show = matchesCategory && matchesSearch;
+          item.el.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        // 2) Hide a panel entirely if it has no visible venues (cleaner than empty headings)
+        panels.forEach(function (p) {
+          var anyVisible = false;
+          var items = p.querySelectorAll('details.venue');
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].style.display !== 'none') { anyVisible = true; break; }
+          }
+          if (anyVisible) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+
+        // 3) Update counter + show/hide reset link + empty state
+        visibleEl.textContent = visible;
+        var anyFilterActive = (activeCategory !== 'all') || !!searchTerm;
+        if (anyFilterActive) resetLink.removeAttribute('hidden');
+        else resetLink.setAttribute('hidden', '');
+
+        if (visible === 0) emptyState.removeAttribute('hidden');
+        else emptyState.setAttribute('hidden', '');
+      }
+
+      // Chip clicks
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) {
+            c.classList.remove('active');
+            c.setAttribute('aria-selected', 'false');
+          });
+          chip.classList.add('active');
+          chip.setAttribute('aria-selected', 'true');
+          activeCategory = chip.getAttribute('data-category');
+          applyFilters();
+        });
+      });
+
+      // Search input
+      searchInput.addEventListener('input', function (e) {
+        searchTerm = e.target.value.toLowerCase().trim();
+        if (searchTerm) searchClear.removeAttribute('hidden');
+        else searchClear.setAttribute('hidden', '');
+        applyFilters();
+      });
+
+      // Clear search button
+      searchClear.addEventListener('click', function () {
+        searchInput.value = '';
+        searchTerm = '';
+        searchClear.setAttribute('hidden', '');
+        applyFilters();
+        searchInput.focus();
+      });
+
+      // Reset filters link
+      resetLink.addEventListener('click', function () {
+        searchInput.value = '';
+        searchTerm = '';
+        searchClear.setAttribute('hidden', '');
+        chips.forEach(function (c) {
+          c.classList.remove('active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        var allChip = document.querySelector('.filter-chip[data-category="all"]');
+        allChip.classList.add('active');
+        allChip.setAttribute('aria-selected', 'true');
+        activeCategory = 'all';
+        applyFilters();
+      });
+
+      // Initial render
+      applyFilters();
+    })();
   </script>
 </body>
 </html>
