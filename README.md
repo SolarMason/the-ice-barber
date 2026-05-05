@@ -2,7 +2,7 @@
 
 Family-owned shaved ice serving Northeast Pennsylvania.
 
-📞 **(570) 251-1996** · ✉️ **theicebarber@gmail.com** · 🌐 **theicebarber.com**
+📞 **(570) 291-7911** · ✉️ **theicebarber@gmail.com** · 🌐 **theicebarber.com**
 
 ---
 
