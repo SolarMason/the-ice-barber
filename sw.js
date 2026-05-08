@@ -2,7 +2,7 @@
    Bump CACHE version any time you change the asset list or ship updates
    you want pushed to existing visitors.
 */
-const CACHE = 'icebarber-v7';
+const CACHE = 'icebarber-v8';
 const ASSETS = [
   './',
   './index.html',

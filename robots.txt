@@ -1,0 +1,125 @@
+# robots.txt — The Ice Barber LLC
+# Northeast Pennsylvania mobile shaved ice catering
+# https://theicebarber.com/
+
+# ────────────────────────────────────────────────
+# Standard search engines
+# ────────────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?utm_*
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ────────────────────────────────────────────────
+# AI search & assistant crawlers — explicitly allowed
+# (these power ChatGPT, Claude, Perplexity, Google AI
+# Overviews, Siri, Alexa, Bing Copilot, etc.)
+# ────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: AwarioRssBot
+Allow: /
+
+User-agent: AwarioSmartBot
+Allow: /
+
+# ────────────────────────────────────────────────
+# Block scrapers & abusive crawlers
+# ────────────────────────────────────────────────
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# ────────────────────────────────────────────────
+# Sitemaps
+# ────────────────────────────────────────────────
+Sitemap: https://theicebarber.com/sitemap.xml

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://theicebarber.com/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-us" href="https://theicebarber.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theicebarber.com/" />
+    <image:image>
+      <image:loc>https://theicebarber.com/og-card.png</image:loc>
+      <image:title>The Ice Barber LLC — Premium Shaved Ice for NEPA Events</image:title>
+      <image:caption>Family-owned mobile shaved ice catering across Northeast Pennsylvania.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://theicebarber.com/icon-512.png</image:loc>
+      <image:title>The Ice Barber LLC logo</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/venues.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/media.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/#pricing</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/#about</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/#flavors</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/#book</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://theicebarber.com/#faq</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
